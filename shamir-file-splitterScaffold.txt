@@ -1,0 +1,17 @@
+shamir-file-splitter/
+├── input/                         ← Place your input files here
+├── output/                        ← Will contain subfolders 1/, 2/, ..., n/
+├── processed/                     ← Contains base64 and chunked files
+├── src/
+│   └── main/
+│       └── java/
+│           └── com/
+│               └── mikcore/
+│                   └── shamir/
+│                       ├── Main.java
+│                       ├── FileSplitter.java
+│                       ├── ShamirSplitter.java
+│                       ├── Utils.java
+├── pom.xml
+└── README.md
+
