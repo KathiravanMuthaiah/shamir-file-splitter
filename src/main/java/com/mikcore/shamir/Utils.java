@@ -16,5 +16,15 @@ public class Utils {
 
         return result;
     }
+
+    // Secure polynomial evaluation mod prime
+    public static BigInteger evaluatePolynomialMod(List<BigInteger> coefficients, BigInteger x, BigInteger prime) {
+        BigInteger result = BigInteger.ZERO;
+        for (int i = 0; i < coefficients.size(); i++) {
+            BigInteger term = coefficients.get(i).multiply(x.modPow(BigInteger.valueOf(i), prime)).mod(prime);
+            result = result.add(term).mod(prime);
+        }
+        return result;
+    }
 }
 

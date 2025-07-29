@@ -34,7 +34,7 @@ public class ShamirSplitter {
                 BigInteger y = Utils.evaluatePolynomial(coefficients, x);
 
                 String shareFile = String.format("output/%d/%s_g%d_n%d.txt", i, filename, chunkIdx, i);
-                Files.writeString(Paths.get(shareFile), x + "," + y);
+                Files.writeString(Paths.get(shareFile), x + "," + y + "," + "-1");
             }
         }
 
