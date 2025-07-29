@@ -130,14 +130,15 @@ $$
 - **Addition mod 5**
 
   
+
   $$
   3 + 4 = 7 \mod 5 = 2
   $$
-  
 
 - **Multiplication mod 5**
 
   
+
   $$
   2 \times 4 = 8 \mod 5 = 3
   $$
@@ -145,9 +146,11 @@ $$
 - **Subtraction mod 5**
 
   
+
   $$
   1 - 4 = -3 \mod 5 = 2
   $$
+
   
 
 - **Division mod 5 (using multiplicative inverse)**
@@ -160,6 +163,7 @@ $$
 ------
 
 ### **Example 2: GF(7)**
+
 
 
 $$
@@ -213,6 +217,7 @@ One way to visualize GF(p) is a **modular clock**:
 2. Construct a **random polynomial in GF(p)**:
 
    
+
    $$
    f(x) = a_0 + a_1x + a_2x^2 \mod p
    $$
@@ -225,9 +230,11 @@ One way to visualize GF(p) is a **modular clock**:
 3. Generate shares as points:
 
    
+
    $$
    (x, f(x) \mod p)
    $$
+
    
 
 4. Reconstruct secret using **Lagrange interpolation in GF(p)**
