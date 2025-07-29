@@ -14,7 +14,7 @@ This note explains the **mathematical foundation** behind using **mod a large pr
   $$
   10 \mod 7 = 3
   $$
-  Because $10 = 7 \times 1 + 3$
+  Because $$ 10 = 7 \times 1 + 3 $$
 
 ### **Mod a Large Prime**
 
@@ -38,9 +38,13 @@ This note explains the **mathematical foundation** behind using **mod a large pr
 ## 2️⃣ **Without Modular Reduction (Raw Integer Arithmetic)**
 
 If we compute polynomials **without a modulus**, like:
+
+
 $$
 f(x) = a_0 + a_1x + a_2x^2
 $$
+
+
 Then:
 
 1. **Shares grow in size** as $x$ increases
@@ -75,17 +79,24 @@ A **finite field** $GF(p)$ (Galois Field of prime order $p$) has:
 ### **Polynomial in GF(p)**
 
 Example Shamir polynomial:
+
+
 $$
 f(x) = a_0 + a_1 x + a_2 x^2 \mod p
 $$
+
+
 
 - $a_0 =$ secret
 - $a_1, a_2 =$ random coefficients in $[0, p-1]$
 
 **Share generation:**
+
+
 $$
 y_i = f(x_i) \mod p
 $$
+
 
 
 # **Understanding GF(p): Galois Field of Prime Order**
@@ -96,33 +107,48 @@ $$
 - It is a **set of numbers** where we do **addition, subtraction, multiplication, and division** **mod p**.
 
 Think of GF(p) as:
+
+
 $$
 GF(p) = \{ 0, 1, 2, ..., p-1 \}
 $$
+
+
 All calculations **wrap around p**.
 
 ------
 
 ### **Example 1: GF(5)**
 
+
 $$
 GF(5) = \{ 0, 1, 2, 3, 4 \}
 $$
 
+
+
 - **Addition mod 5**
+
+  
   $$
   3 + 4 = 7 \mod 5 = 2
   $$
+  
 
 - **Multiplication mod 5**
+
+  
   $$
   2 \times 4 = 8 \mod 5 = 3
   $$
 
 - **Subtraction mod 5**
+
+  
   $$
   1 - 4 = -3 \mod 5 = 2
   $$
+  
 
 - **Division mod 5 (using multiplicative inverse)**
 
@@ -135,9 +161,12 @@ $$
 
 ### **Example 2: GF(7)**
 
+
 $$
 GF(7) = \{ 0, 1, 2, 3, 4, 5, 6 \}
 $$
+
+
 
 - **Addition table (mod 7)**:
 
@@ -182,17 +211,24 @@ One way to visualize GF(p) is a **modular clock**:
 1. Choose a **prime p > secret**
 
 2. Construct a **random polynomial in GF(p)**:
+
+   
    $$
    f(x) = a_0 + a_1x + a_2x^2 \mod p
    $$
+
+   
 
    - $a_0 = $ secret
    - $a_1, a_2 = $ random numbers in GF(p)
 
 3. Generate shares as points:
+
+   
    $$
    (x, f(x) \mod p)
    $$
+   
 
 4. Reconstruct secret using **Lagrange interpolation in GF(p)**
 
@@ -282,11 +318,16 @@ If you **don’t use mod p**:
 ### 1️⃣ **Security Perspective**
 
 - **Key size (prime p)** determines the **finite field GF(p)**.
+
 - Secret $S$ must satisfy:
+
+  
 
 $$
 0 \leq S < p
 $$
+
+
 
 - If your secret is **smaller than p**, there is **no direct functional problem**, because SSS only requires the secret to be within the field.
 
