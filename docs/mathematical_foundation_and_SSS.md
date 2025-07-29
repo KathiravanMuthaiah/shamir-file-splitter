@@ -213,13 +213,21 @@ One way to visualize GF(p) is a **modular clock**:
 ### **Lagrange Interpolation Formula**
 
 Given k shares $(x_i, y_i)$, the secret $a_0$ can be reconstructed as:
+
+
 $$
 f(0) = \sum_{i=1}^{k} y_i \cdot \lambda_i \mod p
 $$
+
+
 Where:
+
+
 $$
 \lambda_i = \prod_{j=1, j \neq i}^{k} \frac{x_j}{x_j - x_i} \mod p
 $$
+
+
 
 - Each fraction is **modular inverse** (exists only in prime fields)
 - Requires **exactly k shares** to get the secret
