@@ -1,6 +1,6 @@
 package com.mikcore.shamir;
 
-public class Main {
+public class ShamirEncrypt {
     public static void main(String[] args) {
         if (args.length != 4) {
             System.err.println("Usage: java Main <inputFilePath> <keySize> <thresholdK> <totalSharesN>");

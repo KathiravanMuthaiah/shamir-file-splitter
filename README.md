@@ -14,7 +14,8 @@ This utility takes an input file (binary or text), base64 encodes it, chunks it 
 
 ```bash
 mvn clean compile
-java -cp target/classes com.mikcore.shamir.Main input/<filename> <k> <n>
+java -cp target/classes com.mikcore.shamir.ShamirEncrypt <filename with path> <k> <n>
+java -cp target/classes com.mikcore.shamir.ShamirEncrypt ./input/sampleinput.txt 256 3 5
 
 
 ```
@@ -22,7 +23,8 @@ java -cp target/classes com.mikcore.shamir.Main input/<filename> <k> <n>
 Example:
 
 ```bash
-java -cp target/classes com.mikcore.shamir.Main input/secret.jpg 3 5
+java -cp target/classes com.mikcore.shamir.ShamirDecrypt <decrypt folder> <k>
+java -cp target/classes com.mikcore.shamir.ShamirDecrypt ./decrypt 3
 ```
 
 This will:
@@ -46,3 +48,26 @@ output/
 ## 📁 Processed Files
 
 Base64 and chunked segments are saved in `processed/` for learning and verification.
+
+## Sample Encryption output
+
+*Base64 saved: processed/sampleinput.txt_base64.txt*
+*Chunk size bytes: 32*
+*Total Chunks : 1*
+*chunkSizeBytes : 32*
+*Choosing simple path with keysize:2048*
+*Sectre:1396797245 processed/sampleinput.txt_g1.txt*
+*Chunk 1 uses prime of 2048 bits.*
+*All secure shares written to output folders.*
+
+## Sample Decryption output
+
+*Sectre:1396797245 decrypt/sampleinput.txt_g1.txt*
+*reconstructedsampleinput.txt_chunk1:SAo=*
+*✅ Reconstructed chunk: sampleinput.txt_chunk1 using 3 shares. Base64 saved: reconstructed/sampleinput.txt_chunk1.b64*
+
+*=== Reconstruction Complete ===*
+*Output File: reconstructed/reconstructed_sampleinput.txt*
+*Original Hash: d98c786cff70da9d10a2c49cf9d849025d3669b95dd56cc7c27c1ebf4cbabc2c*
+*Reconstructed Hash: d98c786cff70da9d10a2c49cf9d849025d3669b95dd56cc7c27c1ebf4cbabc2c*
+*✅ Integrity verified successfully!*
