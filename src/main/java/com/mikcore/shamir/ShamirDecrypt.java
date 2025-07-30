@@ -23,9 +23,10 @@ public class ShamirDecrypt {
     static class ShareFile {
         String originalFile;
         String hash;
+        int SHARE_INDEX;
         int chunkCount;
         BigInteger prime;
-        BigInteger x;
+        List<BigInteger> xList;
         List<BigInteger> yList;
         Path filePath;
     }
@@ -72,9 +73,7 @@ public class ShamirDecrypt {
             List<BigInteger> xs = new ArrayList<>();
             List<BigInteger> ys = new ArrayList<>();
             for (ShareFile shareFile : selectedShares) {
-                System.out.println("\tx\t"+shareFile.x);
-                System.out.println("\ty\t"+shareFile.yList.get(i));
-                xs.add(shareFile.x);
+                xs.add(shareFile.xList.get(i));
                 ys.add(shareFile.yList.get(i));
             }
             BigInteger secret = lagrangeInterpolation(BigInteger.ZERO, xs, ys, prime);
@@ -150,15 +149,18 @@ public class ShamirDecrypt {
                         ShareFile sf = new ShareFile();
                         sf.originalFile = lines.get(0).split(": ")[1].trim();
                         sf.hash = lines.get(1).split(": ")[1].trim();
-                        sf.x = new BigInteger((lines.get(2).split(": ")[1].trim()));
+                        sf.SHARE_INDEX = Integer.parseInt((lines.get(2).split(": ")[1].trim()));
                         sf.chunkCount = Integer.parseInt((lines.get(3).split(": ")[1].trim()));
                         sf.prime = new BigInteger(lines.get(4).split(": ")[1].trim());
-                        System.out.println(path+"\tsf.x"+sf.x);
+                        
+                        sf.xList = new ArrayList<>();
                         sf.yList = new ArrayList<>();
                         for (int i = 0; i < sf.chunkCount; i++) {
-                            System.out.println(path+"\tsf.chunkCount"+sf.chunkCount);
-                            System.out.println(path+"\ty\t"+new BigInteger(lines.get(i+5).trim()));
-                            sf.yList.add(new BigInteger(lines.get(i+5).trim()));
+                            // System.out.println(path+"\tsf.chunkCount"+sf.chunkCount);
+                            // System.out.println(path+"\ty\t"+new BigInteger(lines.get(i+5).trim()));
+                            String[] xy = lines.get(i+5).split(",");
+                            sf.xList.add(new BigInteger(xy[0].trim()));
+                            sf.yList.add(new BigInteger(xy[1].trim()));
                         }
                         sf.filePath = path;
 

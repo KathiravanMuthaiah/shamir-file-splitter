@@ -42,7 +42,7 @@ public class ShamirPrimeSplitter {
 
             // 4️⃣ Generate n shares
             for (int i = 1; i <= n; i++) {
-                BigInteger x = BigInteger.valueOf(i);
+                BigInteger x = new BigInteger(prime.bitLength() - 1, secureRandom).add(BigInteger.ONE);
                 BigInteger y = Utils.evaluatePolynomialMod(coefficients, x, prime);
 
                 String shareFile = String.format("output/%d/%s_g%d_n%d.txt", i, filename, chunkIdx, i);
@@ -82,13 +82,13 @@ public class ShamirPrimeSplitter {
 
             // 4️⃣ Generate n shares
             for (int i = 1; i <= n; i++) {
-                BigInteger x = BigInteger.valueOf(i);
+                BigInteger x = new BigInteger(prime.bitLength() - 1, secureRandom).add(BigInteger.ONE);
                 BigInteger y = Utils.evaluatePolynomialMod(coefficients, x, prime);
 
                
             String shareFile = String.format("output/%s_n%d.txt", filename,i);
                 try (PrintWriter pw = new PrintWriter(new FileWriter(shareFile,true))) {
-                    pw.println(y);
+                    pw.println(x + "," + y);
                 }
             }
         
