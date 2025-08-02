@@ -41,8 +41,8 @@ This project implements **file-level secret sharing** using **Shamir’s Secret 
 
 A well-structured share file helps both **storage** and **reconstruction**:
 
-```
-php-templateCopyEdit# ORIGINAL_FILE: example.pdf
+```text
+# ORIGINAL_FILE: example.pdf
 # ORIGINAL_HASH: 3f2c...a91
 # SHARE_INDEX: 1
 # TOTAL_CHUNK_COUNT: 4
@@ -115,11 +115,7 @@ php-templateCopyEdit# ORIGINAL_FILE: example.pdf
 
 **Split File:**
 
-```
-bash
-
-
-CopyEdit
+```bash
 java com.mikcore.shamir.FileSplitter input.pdf 1024 3 5
 ```
 
@@ -129,11 +125,7 @@ java com.mikcore.shamir.FileSplitter input.pdf 1024 3 5
 
 **Reconstruct File:**
 
-```
-bash
-
-
-CopyEdit
+```bash
 java com.mikcore.shamir.ShamirDecrypt output/ 3
 ```
 
