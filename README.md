@@ -72,6 +72,11 @@ Base64 and chunked segments are saved in `processed/` for learning and verificat
 *Reconstructed Hash: d98c786cff70da9d10a2c49cf9d849025d3669b95dd56cc7c27c1ebf4cbabc2c*
 *✅ Integrity verified successfully!*
 
+📖 Resources
+[Mathematical Foundation of SSS](https://kathiravanmuthaiah.com/posts/mathematical_foundation_and_sss/)
+
+[Polynomial & Lagrange Interpolation](https://kathiravanmuthaiah.com/posts/polynomial_and_lagrange_interpolation/)
+
 ## 🏷️ Tags
 `Java` · `Cryptography` · `Shamir's Secret Sharing` · `File Splitting` · `College Project`
 
