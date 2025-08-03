@@ -71,3 +71,12 @@ Base64 and chunked segments are saved in `processed/` for learning and verificat
 *Original Hash: d98c786cff70da9d10a2c49cf9d849025d3669b95dd56cc7c27c1ebf4cbabc2c*
 *Reconstructed Hash: d98c786cff70da9d10a2c49cf9d849025d3669b95dd56cc7c27c1ebf4cbabc2c*
 *✅ Integrity verified successfully!*
+
+## 🏷️ Tags
+`Java` · `Cryptography` · `Shamir's Secret Sharing` · `File Splitting` · `College Project`
+
+---
+
+## 📜 License
+This project is licensed under the [MIT License](LICENSE) – free to use for learning and educational purposes.
+
