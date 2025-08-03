@@ -10,14 +10,18 @@ This utility takes an input file (binary or text), base64 encodes it, chunks it 
 4. **Sharing**: Each chunk is run through SSS to generate `n` shares
 5. **Output**: Shares are written into folders `output/1/` to `output/n/`
 
+## 📦 Installation
+```bash
+git clone https://github.com/KathiravanMuthaiah/shamir-file-splitter.git
+cd shamir-file-splitter
+mvn package
+```
 ## 🚀 Usage
 
 ```bash
 mvn clean compile
 java -cp target/classes com.mikcore.shamir.ShamirEncrypt <filename with path> <k> <n>
 java -cp target/classes com.mikcore.shamir.ShamirEncrypt ./input/sampleinput.txt 256 3 5
-
-
 ```
 
 Example:
@@ -72,10 +76,11 @@ Base64 and chunked segments are saved in `processed/` for learning and verificat
 *Reconstructed Hash: d98c786cff70da9d10a2c49cf9d849025d3669b95dd56cc7c27c1ebf4cbabc2c*
 *✅ Integrity verified successfully!*
 
-📖 Resources
-[Mathematical Foundation of SSS](https://kathiravanmuthaiah.com/posts/mathematical_foundation_and_sss/)
+📖 **Resources**
 
-[Polynomial & Lagrange Interpolation](https://kathiravanmuthaiah.com/posts/polynomial_and_lagrange_interpolation/)
+[**Mathematical Foundation of SSS**](https://kathiravanmuthaiah.com/posts/mathematical_foundation_and_sss/)
+
+[**Polynomial & Lagrange Interpolation**](https://kathiravanmuthaiah.com/posts/polynomial_and_lagrange_interpolation/)
 
 ## 🏷️ Tags
 `Java` · `Cryptography` · `Shamir's Secret Sharing` · `File Splitting` · `College Project`
